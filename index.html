@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Family World Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Scrollbar for a sleeker look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+
+      /* Light Mode Overrides */
+      html.light-mode body {
+        background-color: #f8fafc !important; /* slate-50 */
+        color: #0f172a !important; /* slate-900 */
+      }
+      
+      html.light-mode .bg-slate-950 {
+        background-color: #f8fafc !important;
+      }
+      
+      html.light-mode .bg-slate-900 {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important; /* slate-200 */
+        color: #0f172a !important;
+      }
+
+      html.light-mode .bg-slate-800 {
+        background-color: #f1f5f9 !important; /* slate-100 */
+        border-color: #cbd5e1 !important; /* slate-300 */
+        color: #334155 !important;
+      }
+      
+      html.light-mode .bg-slate-800\/50 {
+        background-color: rgba(241, 245, 249, 0.5) !important;
+        border-color: #e2e8f0 !important;
+      }
+      
+      html.light-mode .bg-slate-800\/30 {
+        background-color: rgba(241, 245, 249, 0.8) !important;
+      }
+
+      html.light-mode .text-white {
+        color: #0f172a !important;
+      }
+      
+      html.light-mode .text-slate-100 {
+        color: #1e293b !important;
+      }
+
+      html.light-mode .text-slate-200 {
+        color: #334155 !important;
+      }
+
+      html.light-mode .text-slate-300 {
+        color: #475569 !important;
+      }
+
+      html.light-mode .text-slate-400 {
+        color: #64748b !important;
+      }
+      
+      html.light-mode .text-slate-500 {
+        color: #94a3b8 !important;
+      }
+      
+      html.light-mode .border-slate-800 {
+        border-color: #e2e8f0 !important;
+      }
+      
+      html.light-mode .border-slate-700 {
+        border-color: #cbd5e1 !important;
+      }
+
+      html.light-mode input, html.light-mode select, html.light-mode textarea {
+        background-color: #ffffff !important;
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
+      }
+
+      @media print {
+        @page {
+          margin: 0.5cm;
+          size: auto;
+        }
+
+        body, html, #root {
+          height: auto !important;
+          min-height: 100% !important;
+          width: 100% !important;
+          overflow: visible !important;
+          background-color: white !important;
+          color: black !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: block !important;
+        }
+        
+        /* Reset any fixed positioning or flex containers that trap content */
+        .flex, .h-screen, .overflow-hidden {
+          display: block !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+
+        /* Force backgrounds to white and text to black for legibility and ink saving */
+        .bg-slate-900, .bg-slate-950, .bg-slate-800, .bg-indigo-600 {
+          background-color: white !important;
+          color: black !important;
+          border-color: #ccc !important;
+        }
+
+        /* Force specific text colors to black */
+        .text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400, .text-slate-500, .text-indigo-400, .text-emerald-400, .text-rose-400 {
+          color: black !important;
+        }
+
+        /* Hide scrollbars in print */
+        ::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Force Recharts text to be black */
+        .recharts-text {
+          fill: black !important;
+        }
+        
+        /* Ensure lines in charts are visible */
+        .recharts-cartesian-grid line {
+          stroke: #e2e8f0 !important;
+        }
+        
+        /* Utility to hide elements during print */
+        .print\:hidden {
+          display: none !important;
+        }
+
+        /* Utility to show elements during print */
+        .print\:block {
+          display: block !important;
+        }
+        
+        /* Ensure absolute positioning works for receipts */
+        .print\:absolute {
+          position: absolute !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.87.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-950 text-slate-100 antialiased overflow-hidden print:overflow-visible">
+    <div id="root"></div>
+  </body>
+</html>
